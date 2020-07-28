@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page du produit{% endblock %}
+
+{% block body %}
+
+<table>
+    <tr>
+        <td>Nom :</td>
+        <td>{{ nom_product }}</td>
+    </tr>
+    <tr>
+        <td>Description :</td>
+        <td>{{ description_product }}</td>
+    </tr>
+    <tr>
+        <td>Prix :</td>
+        <td>{{ prix_product }}</td>
+    </tr>
+    <tr>
+        <td>Photo :</td>
+        <td><img src="{{ asset(photo_product) }}"/></td>
+    </tr>
+</table>
+
+{% if prix_product > 25 %}
+    <a href="{{ path('facilitePaiement') }}">Voir nos facilités de paiements</a>
+{% endif %}
+
+{% endblock %}

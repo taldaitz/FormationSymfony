@@ -1,0 +1,12 @@
+{% extends "revision/index.html.twig"%}
+
+{% block title %} Révision du Mardi {% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/revision.css') }}">
+{% endblock %}
+
+{% block body %}
+    <h1>Bienvenu, à la révision du Mardi.</h1>
+    <cite>Bonjour {{ prenom }}</cite>
+{% endblock %}
