@@ -1,0 +1,42 @@
+{% extends "football.html.twig" %}
+
+{% block title %}Liste des joueurs{% endblock %}
+
+{% block main %}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <p><a href="{{ path('createPlayer') }}">Créer un nouveau joueur</a></p>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Date de naissance</th>
+            <th>Numéro</th>
+            <th>Position</th>
+            <th>Equipe</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {% for player in players %}
+                <tr>
+                    <td>{{ player.firstname }}</td>
+                    <td>{{ player.lastname }}</td>
+                    <td>{{ player.birthdate|date('d/m/Y') }}</td>
+                    <td>{{ player.number }}</td>
+                    <td>{{ player.position }}</td>
+                    <td>{{ player.team.name }}</td>
+                    <td>
+                        <a href="{{ path('showPlayer', {id: player.id}) }}">Voir</a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                         |
+                        <a href="{{ path('editPlayer', {id: player.id}) }}">Editer</a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -7,23 +7,23 @@
 <table>
     <tr>
         <td>Nom :</td>
-        <td>{{ nom_product }}</td>
+        <td>{{ product.name }}</td>
     </tr>
     <tr>
         <td>Description :</td>
-        <td>{{ description_product }}</td>
+        <td>{{ product.description }}</td>
     </tr>
     <tr>
         <td>Prix :</td>
-        <td>{{ prix_product }}</td>
+        <td>{{ product.prix }}</td>
     </tr>
     <tr>
         <td>Photo :</td>
-        <td><img src="{{ asset(photo_product) }}"/></td>
+        <td><img src="{{ asset(product.image) }}"/></td>
     </tr>
 </table>
 
-{% if prix_product > 25 %}
+{% if product.prix > 25 %}
     <a href="{{ path('facilitePaiement') }}">Voir nos facilités de paiements</a>
 {% endif %}
 

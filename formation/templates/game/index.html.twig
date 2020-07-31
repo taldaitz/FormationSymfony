@@ -1,0 +1,32 @@
+{% extends "football.html.twig" %}
+
+{% block title %}Calendrier des matchs{% endblock %}
+
+{% block main %}
+
+    <pre>
+        {{ dump(dumpGame) }}
+    </pre>
+
+    <table class="table">
+        <thead>
+            <th>Date</th>
+            <th>Equipe Domicile</th>
+            <th>Equipe exterieur</th>
+            <th>Actions</th>
+        </thead>
+        <tbody>
+            {% for game in games %}
+                <tr>
+                    <td>{{ game.date|date('d/m/Y') }}</td>
+                    <td>{{ game.teamIn.name }}</td>
+                    <td>{{ game.teamOut.name }}</td>
+                    <td>
+                        <a href="#">Voir</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

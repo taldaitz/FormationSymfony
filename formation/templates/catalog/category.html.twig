@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page de catégorie{% endblock %}
+
+{% block body %}
+
+<h1>{{ category.name }}</h1>
+
+    {% set products = category.products %}
+    {% include "catalog/_productList.html.twig" %}
+
+{% endblock %}

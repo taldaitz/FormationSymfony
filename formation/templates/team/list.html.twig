@@ -1,0 +1,29 @@
+{% extends "football.html.twig" %}
+
+{% block main %}
+
+<table class="table">
+    <thead>
+        <th>Nom</th>
+        <th>Ville</th>
+        <th>Niveau</th>
+        <th>Nombre de joueurs</th>
+        <th>Actions</th>
+    </thead>
+    <tbody>
+        {% for team in teams %}
+            <tr>
+                <td>{{ team.name }}</td>
+                <td>{{ team.city }}</td>
+                <td>{{ team.level }}</td>
+                <td>{{ team.nbPlayers }}</td>
+                <td>
+                    <a href="{{ path('showPlayer', {id: player.id}) }}">Voir</a> |
+                    <a href="{{ path('editPlayer', {id: player.id}) }}">Editer</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

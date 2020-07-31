@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %} Création de produit {% endblock %}
+
+{% block body %}
+
+<h1>Création de produit</h1>
+
+
+{{ form(productForm) }}
+
+
+{#
+{{ form_start(productForm)}}
+    {{ form_widget(productForm)}}
+
+    <button type="reset" class="button">Remise à zéro</button>
+
+{{form_end(productForm)}}
+
+#}
+
+{% endblock %}

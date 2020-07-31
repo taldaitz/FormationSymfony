@@ -1,0 +1,33 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Ma bibliothèque{% endblock %}
+
+{% block body %}
+
+<h1>Ma bibliothèque</h1>
+
+<p>
+    <a href="{{ path('creeLivre')}}">Créer un nouveau livre</a>
+</p>
+
+<table>
+    <thead>
+        <th>Titre</th>
+        <th>Auteur</th>
+        <th>Resume</th>
+        <th>Date de parution</th>
+    </thead>
+    <tbody>
+        {% for livre in livres %}
+            <tr>
+                <td>{{ livre.titre }}</td>
+                <td>{{ livre.auteur }}</td>
+                <td>{{ livre.resume }}</td>
+                <td>{{ livre.dateParution|date('d/m/Y') }}</td>
+                <td><a href="{{ path('editLivre', {id: livre.id}) }}">Modifier</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+<table>
+    <thead>
+        <th>Nom</th>
+        <th>Decription</th>
+        <th>Prix</th>
+        <th>Photo</th>
+        <th>Categorie</th>
+    </thead>
+    <tbody>
+
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.description }}</td>
+                <td>{{ product.prix }}</td>
+                {% if product.image != null %}
+                    <td><img src="{{ asset(product.image) }}" height="50px"/></td>
+                {% else %}
+                    <td> pas d'image</td>
+                {% endif %}
+                <td>{{ product.category.name}} </td>
+            </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
